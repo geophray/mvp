@@ -19,8 +19,9 @@ coverage
 .grunt
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
-build/
-dist/
+public/
+!public/*.html
+!public/*.css
 
 # Dependency directorys
 # Deployed apps should consider commenting these lines out:
@@ -33,3 +34,6 @@ bower_components/
 .floobit
 .floo
 .flooignore
+
+# Environment Variable Files
+.env
