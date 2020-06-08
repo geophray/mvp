@@ -64,14 +64,9 @@ class App extends React.Component {
 
 
   render() {
+    this.state
     return (
-      <form onSubmit={this.handleQuery}>
-        <label>
-          Find new recipes:
-          <input type="text" name="q" value={this.state.q} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <FindNewRecipesForm handleQuery={this.handleQuery} handleChange={this.handleChange} value={this.state.q} />
     );
   };
 };
