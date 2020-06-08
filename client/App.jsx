@@ -23,6 +23,16 @@ class App extends React.Component {
   handleQuery(e) {
     e.preventDefault();
     console.log(this.state.q);
+    axios
+      .get(`/api/rapidapi/recipes/${this.state.q}`)
+      .then((response) => {
+        this.setState({
+          qresults: response
+        })
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 
 
