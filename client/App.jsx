@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      q: ''
+      q: '',
+      qresults: [],
+      myrecipes: [],
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleQuery = this.handleQuery.bind(this);
