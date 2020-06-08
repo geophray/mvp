@@ -1,0 +1,15 @@
+.recipe-card {
+}
+
+.recipe-thumbnail {
+  padding-top: 57%;
+  background-size: cover !important;
+}
+
+.recipe-card-text {
+  padding: 10px;
+}
+
+.recipe-card-text h3 {
+  margin-top: 0;
+}

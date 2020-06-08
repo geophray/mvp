@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import FindNewRecipesForm from './FindNewRecipesForm.jsx';
+import RecipeList from './RecipeList.jsx';
 
 import dummyData from '../dummyData.js';
 
@@ -61,10 +62,14 @@ class SearchNewRecipes extends React.Component {
 
 
   render() {
+    const { qresults } = this.state;
     return (
       <div>
         <h2>Discover Something New!</h2>
         <FindNewRecipesForm handleQuery={this.handleQuery} handleChange={this.handleChange} value={this.state.q} />
+        {qresults.length > 0 &&
+          <RecipeList title="Search Results" recipes={this.state.qresults} />
+        }
       </div>
     );
   }
