@@ -12,17 +12,17 @@ app.get('/', (req, res) => {
   res.status(200).send('Get request made to "/".');
 });
 
-app.get('/api/rapidapi/recipes', (req, res) => {
-
+app.get('/api/rapidapi/recipes/:id', (req, res) => {
   unirest
     .get("https://tasty.p.rapidapi.com/recipes/list")
     .headers({
       "x-rapidapi-host": "tasty.p.rapidapi.com",
-	    "x-rapidapi-key": process.env.RAPIDAPI_KEY,
+      "x-rapidapi-key": process.env.RAPIDAPI_KEY,
+      "Content-Type": 'application/json',
 	    "useQueryString": true
     })
     .send({
-      "q": req.body.q,
+      "q": req.params.id,
       "from": "0",
       "sizes": "20"
     })
