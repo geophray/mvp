@@ -5,11 +5,46 @@ import axios from 'axios';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      q: '',
+      qresults: [],
+      myrecipes: [],
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleQuery = this.handleQuery.bind(this);
   }
+
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
+  handleQuery(e) {
+    e.preventDefault();
+    console.log(this.state.q);
+    axios
+      .get(`/api/rapidapi/recipes/${this.state.q}`)
+      .then((response) => {
+        this.setState({
+          qresults: response
+        })
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
 
   render() {
     return (
-      <h1>My app is rendering!</h1>
+      <form onSubmit={this.handleQuery}>
+        <label>
+          Find new recipes:
+          <input type="text" name="q" value={this.state.q} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
     );
   };
 };
