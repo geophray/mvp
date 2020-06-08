@@ -1,0 +1,21 @@
+{
+  "id": 1,
+  "name": "Some recipe",
+  "thumbnail_url": "https://someurl.com",
+  "description": "Short description of the recipe",
+  "backstory": "The history or story of why you love this recipe that nobody really wants to read",
+  "instructions": [
+    {
+      "text": "Some string.",
+      "order": 0
+    }
+  ],
+  "ingredients": [
+    {
+      "display_text": "1 packet of spaghetti",
+      "order": 0,
+
+    }
+  ],
+  "num_servings": 1
+}
