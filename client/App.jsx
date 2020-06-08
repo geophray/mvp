@@ -27,7 +27,7 @@ class App extends React.Component {
       .get(`/api/rapidapi/recipes/${this.state.q}`)
       .then((response) => {
         this.setState({
-          qresults: response
+          qresults: response.data.body.results
         })
       })
       .catch((err) => {
