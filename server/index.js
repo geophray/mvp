@@ -1,5 +1,6 @@
-const express = require('express');
 const path = require('path');
+require('dotenv').config(path.join(__dirname, '../.env'));
+const express = require('express');
 const unirest = require('unirest');
 
 const PORT = process.env.PORT || 3000;
