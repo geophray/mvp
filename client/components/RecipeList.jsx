@@ -5,7 +5,7 @@ import styles from '../css/recipelist.css';
 
 const RecipeList = ({ title, recipes }) => {
   const recipeList = recipes.map((recipe) => {
-    return <RecipeCard key={recipe.id} recipe={recipe} />;
+    return <RecipeCard key={recipe.id || recipe.external_id} recipe={recipe} />;
   })
   return (
     <section>
