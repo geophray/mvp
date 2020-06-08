@@ -1,50 +1,61 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import axios from 'axios';
+
+import MyRecipes from './components/MyRecipes.jsx';
+import SearchNewRecipes from './components/SearchNewRecipes.jsx';
+import Household from './components/Household.jsx';
+
+import styles from './css/app.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      q: '',
-      qresults: [],
       myrecipes: [],
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleQuery = this.handleQuery.bind(this);
   }
-
-  handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
-
-  handleQuery(e) {
-    e.preventDefault();
-    console.log(this.state.q);
-    axios
-      .get(`/api/rapidapi/recipes/${this.state.q}`)
-      .then((response) => {
-        this.setState({
-          qresults: response
-        })
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-  }
-
 
   render() {
+    this.state
     return (
-      <form onSubmit={this.handleQuery}>
-        <label>
-          Find new recipes:
-          <input type="text" name="q" value={this.state.q} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <Router>
+        <div>
+          <header className={styles['app-header']}>
+            <h1 className={styles['site-title']}>Meal Planning Made Easy</h1>
+            <nav className={styles['nav-menu']}>
+              <ul>
+                <li>
+                  <Link to="/">My Recipes</Link>
+                </li>
+                <li>
+                  <Link to='/explore'>Explore</Link>
+                </li>
+                <li>
+                  <Link to='/household'>Household</Link>
+                </li>
+              </ul>
+            </nav>
+          </header>
+          <main className={styles['main-content-wrapper']}>
+            <Switch>
+              <Route path='/household'>
+                <Household />
+              </Route>
+              <Route path='/explore'>
+                <SearchNewRecipes />
+              </Route>
+              <Route path='/'>
+                <MyRecipes />
+              </Route>
+            </Switch>
+          </main>
+          <footer>
+
+          </footer>
+        </div>
+      </Router>
     );
   };
 };
