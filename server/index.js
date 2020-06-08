@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
   res.status(200).send('Get request made to "/".');
 });
 
-app.get('/api/rapidapi/recipes/:id', (req, res) => {
+app.get('/api/rapidapi/recipes/:queryString', (req, res) => {
   unirest
     .get("https://tasty.p.rapidapi.com/recipes/list")
     .headers({
@@ -22,7 +22,7 @@ app.get('/api/rapidapi/recipes/:id', (req, res) => {
 	    "useQueryString": true
     })
     .send({
-      "q": req.params.id,
+      "q": req.params.queryString,
       "from": "0",
       "sizes": "20"
     })
