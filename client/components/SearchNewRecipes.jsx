@@ -4,26 +4,12 @@ import axios from 'axios';
 import FindNewRecipesForm from './FindNewRecipesForm.jsx';
 import RecipeList from './RecipeList.jsx';
 
-import dummyData from '../dummyData.js';
-
-const massagedData = dummyData.map(recipe => {
-  return {
-    external_id: `ext_${recipe.id}`,
-    name: recipe.name,
-    thumbnail_url: recipe.thumbnail_url,
-    description: recipe.description,
-    backstory: 'This is the story about why you love this recipe that nobody cares about. Just skip to the recipe.',
-    instructions: recipe.instructions,
-    components: recipe.sections
-  }
-});
-
 class SearchNewRecipes extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       q: '',
-      qresults: massagedData,
+      qresults: [],
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleQuery = this.handleQuery.bind(this);
@@ -42,7 +28,7 @@ class SearchNewRecipes extends React.Component {
       .then((response) => {
         const data = response.data.body.results.map(recipe => {
           return {
-            external_id: `ext_${recipe.id}`,
+            external_id: recipe.id,
             name: recipe.name,
             thumbnail_url: recipe.thumbnail_url,
             description: recipe.description,

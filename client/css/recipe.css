@@ -36,3 +36,22 @@
 .recipe-content {
   padding: 1em;
 }
+
+.saved {
+  background-color: rgb(67, 158, 67);
+}
+
+.unsaved {
+  background-color: #eb5160;
+}
+
+.save-button {
+  color: white;
+  padding: 1em 1.5em;
+  float: left;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  margin: 10px;
+  border-radius: 10px;
+}
