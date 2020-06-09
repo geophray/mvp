@@ -62,13 +62,14 @@ class SearchNewRecipes extends React.Component {
 
 
   render() {
+    const { viewRecipe } = this.props;
     const { qresults } = this.state;
     return (
       <div>
         <h2>Discover Something New!</h2>
         <FindNewRecipesForm handleQuery={this.handleQuery} handleChange={this.handleChange} value={this.state.q} />
         {qresults.length > 0 &&
-          <RecipeList title="Search Results" recipes={this.state.qresults} />
+          <RecipeList title="Search Results" recipes={this.state.qresults} view={viewRecipe} />
         }
       </div>
     );

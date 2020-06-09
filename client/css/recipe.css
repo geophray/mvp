@@ -1,0 +1,38 @@
+.lightbox-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #071013;
+  overflow: scroll;
+}
+
+.close-lightbox {
+  z-index: 10;
+  position: sticky;
+  float: right;
+  top: 0;
+  right: 0;
+  color: #eb5160;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-content-wrapper {
+  position: relative;
+  background-color: white;
+  margin: 0 auto;
+  max-width: 900px;
+  overflow-y: visible;
+}
+
+.recipe-photo {
+  height: 40vh;
+  position: relative;
+  background-size: cover !important;
+}
+
+.recipe-content {
+  padding: 1em;
+}

@@ -1,0 +1,26 @@
+.step-wrapper {
+  border-bottom: 1px dashed #aaaaaa;
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  padding: 1em 0;
+}
+
+.step-wrapper:last-child {
+  border-bottom: none;
+}
+
+.step-number {
+  color: #eb5160;
+  font-size: 2.5em;
+  font-family: 'Amatic SC', cursive;
+}
+
+.step-text {
+  align-self: center;
+}
+
+@media only screen and (min-width: 860px) {
+  .step-wrapper {
+    grid-template-columns: 1fr 19fr;
+  }
+}
