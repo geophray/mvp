@@ -34,6 +34,7 @@ app.get('/api/rapidapi/recipes/:queryString', (req, res) => {
 
     request.end((response) => {
       if (response.error) {
+        console.error(response.error);
         res.status(500).send('Server error.');
       } else {
         res.status(200).send(response);
@@ -44,6 +45,7 @@ app.get('/api/rapidapi/recipes/:queryString', (req, res) => {
 app.get('/api/recipes', (req, res) => {
   db.recipes.getAllSavedRecipes((err, results) => {
     if (err) {
+      console.error(err);
       res.status(500).send('Error retrieving recipes.');
     } else {
       res.status(200).send(results);
