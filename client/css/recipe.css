@@ -10,7 +10,8 @@
 
 .close-lightbox {
   z-index: 10;
-  position: absolute;
+  position: sticky;
+  float: right;
   top: 0;
   right: 0;
   color: #eb5160;
@@ -30,4 +31,8 @@
   height: 40vh;
   position: relative;
   background-size: cover !important;
+}
+
+.recipe-content {
+  padding: 1em;
 }
