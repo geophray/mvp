@@ -42,7 +42,13 @@ app.get('/api/rapidapi/recipes/:queryString', (req, res) => {
 });
 
 app.get('/api/recipes', (req, res) => {
-  res.send('Api request for recipes received.')
+  db.recipes.getAllSavedRecipes((err, results) => {
+    if (err) {
+      res.status(500).send('Error retrieving recipes.');
+    } else {
+      res.status(200).send(results);
+    }
+  })
 });
 
 app.post('/api/recipe', (req, res) => {
