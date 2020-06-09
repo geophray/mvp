@@ -2,12 +2,14 @@
 
 CREATE TABLE recipes (
   id serial PRIMARY KEY,
-  name varchar,
+  external_id varchar(20),
+  name varchar(50),
   thumbnail_url varchar,
   description varchar,
   backstory varchar,
   instructions jsonb[],
-  ingredients jsonb[]
+  components jsonb[],
+  UNIQUE (external_id, name)
 );
 
 /* Create ingredients */

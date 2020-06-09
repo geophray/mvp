@@ -36,3 +36,11 @@
 .recipe-content {
   padding: 1em;
 }
+
+.saved {
+  color: green;
+}
+
+.unsaved {
+  color: red;
+}

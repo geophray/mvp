@@ -8,7 +8,7 @@ import dummyData from '../dummyData.js';
 
 const massagedData = dummyData.map(recipe => {
   return {
-    external_id: `ext_${recipe.id}`,
+    external_id: recipe.id,
     name: recipe.name,
     thumbnail_url: recipe.thumbnail_url,
     description: recipe.description,
@@ -42,7 +42,7 @@ class SearchNewRecipes extends React.Component {
       .then((response) => {
         const data = response.data.body.results.map(recipe => {
           return {
-            external_id: `ext_${recipe.id}`,
+            external_id: recipe.id,
             name: recipe.name,
             thumbnail_url: recipe.thumbnail_url,
             description: recipe.description,
