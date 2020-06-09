@@ -49,7 +49,7 @@ class Recipe extends React.Component {
     const ingredientsList = components.map((component) => {
       return <IngredientsList key={component.position} component={component} />;
     });
-    const addButton = this.state.isSaved ? <span className={styles['saved']}>Saved</span> : <span className={styles['unsaved']} onClick={() => this.addRecipe(recipe)}>Save</span>;
+    const addButton = this.state.isSaved ? <span className={`${styles['saved']} ${styles['save-button']}`}>Saved</span> : <span className={`${styles['unsaved']} ${styles['save-button']}`} onClick={() => this.addRecipe(recipe)}>Save</span>;
     return (
       <>
         <div className={styles['lightbox-bg']}>
