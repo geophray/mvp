@@ -6,6 +6,7 @@ import axios from 'axios';
 import MyRecipes from './components/MyRecipes.jsx';
 import SearchNewRecipes from './components/SearchNewRecipes.jsx';
 import Household from './components/Household.jsx';
+import Recipe from './components/Recipe.jsx';
 
 import styles from './css/app.css';
 
@@ -13,14 +14,29 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      myrecipes: [],
+      currentRecipe: {},
     };
-  }
+    this.closeRecipe = this.closeRecipe.bind(this);
+    this.handleRecipeClick = this.handleRecipeClick.bind(this);
+  };
+
+  closeRecipe() {
+    this.setState({
+      currentRecipe: {}
+    });
+  };
+
+  handleRecipeClick(recipe) {
+    this.setState({
+      currentRecipe: recipe
+    });
+  };
 
   render() {
     this.state
     return (
       <Router>
+        {JSON.stringify(this.state.currentRecipe) === '{}' ? null : <Recipe recipe={this.state.currentRecipe} close={this.closeRecipe} />}
         <div>
           <header className={styles['app-header']}>
             <h1 className={styles['site-title']}>Meal Planning Made Easy</h1>
@@ -44,10 +60,10 @@ class App extends React.Component {
                 <Household />
               </Route>
               <Route path='/explore'>
-                <SearchNewRecipes />
+                <SearchNewRecipes viewRecipe={this.handleRecipeClick} />
               </Route>
               <Route path='/'>
-                <MyRecipes />
+                <MyRecipes viewRecipe={this.handleRecipeClick} />
               </Route>
             </Switch>
           </main>
