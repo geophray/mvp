@@ -1,4 +1,4 @@
-# meal-planning-made-easy
+# Meal Planning Made Easy - MVP
 
 > Recipe cataloguing app for easily tracking dietary preferences/restrictions for multiple people. A must have for any parent of picky eaters.
 
